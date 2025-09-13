@@ -1,0 +1,10 @@
+-r requirements.txt   # include everything from production
+
+# ====================
+# Development tools
+# ====================
+pytest>=8.0
+pytest-django>=4.8
+black>=24.0
+flake8>=7.0
+isort>=5.13

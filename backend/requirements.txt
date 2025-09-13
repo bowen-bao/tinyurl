@@ -1,0 +1,27 @@
+# ====================
+# Core framework
+# ====================
+django>=5.0,<6.0
+python-dotenv>=1.0      # Load secrets from .env file
+
+# ====================
+# Database drivers
+# ====================
+# Use one of these depending on environment
+mysqlclient>=2.2          # MySQL/MariaDB driver (fast, requires dev libs installed)
+
+# ====================
+# API / Middleware
+# ====================
+django-cors-headers>=4.3
+djangorestframework>=3.15
+
+# ====================
+# Production server
+# ====================
+gunicorn>=22.0            # WSGI HTTP server for production
+
+# ====================
+# Static file handling (if not using Nginx for static)
+# ====================
+whitenoise>=6.6           # Simple static files serving (optional but useful)
