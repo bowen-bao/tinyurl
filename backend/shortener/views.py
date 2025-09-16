@@ -1,5 +1,5 @@
 import json
-from django.http import JsonResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.http import JsonResponse, HttpResponseNotFound, HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
 from django.views.decorators.csrf import csrf_exempt
@@ -8,6 +8,8 @@ from shortener.services import create_short_link
 from shortener.models import Link
 from shortener.validators import is_valid_url
 
+def home(request):
+    return HttpResponse("TinyURL backend is running.")
 
 @csrf_exempt
 @require_http_methods(["POST"])

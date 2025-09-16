@@ -16,11 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
-from shortener.views import shorten
-from shortener.views import resolve
-from shortener.views import health
+from shortener.views import shorten, resolve, health, home
 
 urlpatterns = [
+    path("", home),
     path('admin/', admin.site.urls),
     path('api/shorten', shorten),
     path("health", health),
