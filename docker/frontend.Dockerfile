@@ -1,5 +1,5 @@
 # ----------------------------
-# 1️⃣ Build Stage – Compile the React app
+# 1) Build Stage – Compile the React app
 # ----------------------------
 FROM node:18-alpine AS build
 
@@ -20,7 +20,7 @@ RUN npm run build
 # --> creates a /app/build directory with static HTML/CSS/JS
 
 # ----------------------------
-# 2️⃣ Serve Stage – Nginx to serve the static files
+# 2) Serve Stage – Nginx to serve the static files
 # ----------------------------
 FROM nginx:alpine
 
