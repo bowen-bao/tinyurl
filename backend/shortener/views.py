@@ -8,13 +8,14 @@ from shortener.services import create_short_link
 from shortener.models import Link
 from shortener.validators import is_valid_url
 from shortener.services import get_cached_url, cache_url
-
+from ratelimit.decorators import ratelimit
 
 def home(request):
     return HttpResponse("TinyURL backend is running.")
 
 @csrf_exempt
 @require_http_methods(["POST"])
+@ratelimit(key='ip', rate='10/m', block=True)
 def shorten(request):
     try:
         body = json.loads(request.body or "{}")
