@@ -2,6 +2,16 @@
 from django.db import transaction
 from .models import Link
 from .base62 import encode
+import redis
+
+r = redis.Redis.from_url(config("REDIS_URL"))
+
+def get_cached_url(code):
+    url = r.get(code)
+    return url.decode() if url else None
+
+def cache_url(code, long_url, ttl=3600):
+    r.setex(code, ttl, long_url)
 
 @transaction.atomic
 def create_short_link(long_url: str, custom_code: str | None = None) -> Link:
@@ -17,3 +27,6 @@ def create_short_link(long_url: str, custom_code: str | None = None) -> Link:
     temp.code = code
     temp.save(update_fields=["code"])
     return temp
+
+
+
