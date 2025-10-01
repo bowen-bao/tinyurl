@@ -10,7 +10,7 @@ export default function App() {
     e.preventDefault();
     setErr(null); setShort(null);
     try {
-      const res = await fetch("http://localhost:8000/api/shorten", {
+      const res = await fetch("http://bowenbao.com/api/shorten", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url }),
