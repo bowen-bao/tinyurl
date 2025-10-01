@@ -60,10 +60,12 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # your React dev server
+    "http://bowenbao.com",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
+    "http://bowenbao.com",
 ]
 
 # Optional: allow cookies cross-origin
