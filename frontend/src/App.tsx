@@ -17,7 +17,7 @@ export default function App() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Failed");
-      setShort(`http://localhost:8000${data.shortUrl}`);
+      setShort(`http://bowenbao.com${data.shortUrl}`);
     } catch (e: any) {
       setErr(e.message);
     }
