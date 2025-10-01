@@ -8,7 +8,9 @@ from shortener.services import create_short_link
 from shortener.models import Link
 from shortener.validators import is_valid_url
 from shortener.services import get_cached_url, cache_url
-from ratelimit.decorators import ratelimit
+from django_ratelimit.decorators import ratelimit
+import logging
+logger = logging.getLogger(__name__)
 
 def home(request):
     return HttpResponse("TinyURL backend is running.")
@@ -18,6 +20,7 @@ def home(request):
 @ratelimit(key='ip', rate='10/m', block=True)
 def shorten(request):
     try:
+        logger.info("Processing request for /my_view/")
         body = json.loads(request.body or "{}")
         long_url = body.get("url")
         custom = body.get("customCode")

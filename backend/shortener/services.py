@@ -3,6 +3,7 @@ from django.db import transaction
 from .models import Link
 from .base62 import encode
 import redis
+from decouple import config
 
 r = redis.Redis.from_url(config("REDIS_URL"))
 
